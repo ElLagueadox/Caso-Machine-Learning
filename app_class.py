@@ -2,14 +2,14 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 # Cargar el modelo
-with open("model.pkl", "rb") as f:
-    model = pickle.load(f)
+with open("modelo_clasificacion.pkl", "rb") as f:
+    modelo_clasificacion = pickle.load(f)
 
 app = Flask(__name__)
 
 # Ruta para la página web
 @app.route("/", methods=["GET", "POST"])
-def index():
+def index_clas():
     if request.method == "POST":
         # Recibir las características del formulario
         cuentas = float(request.form["Cuentas"])
@@ -41,15 +41,15 @@ def index():
                     pago_nac, fac_ccot, col_mx]
 
         # Realizar la predicción
-        prediction = model.predict([features])[0]
+        prediction = modelo_clasificacion.predict([features])[0]
 
         # Convertir la predicción numérica en "sí" o "no"
-        prediction = "Dualidad: Sí" if prediction == 1 else "Dualidad: No"
+        prediction = "El cliente es dual" if prediction == 1 else "El cliente no es dual"
 
         # Renderizar el resultado en la misma página
-        return render_template("index.html", prediction=prediction)
+        return render_template("index_clas.html", prediction=prediction)
 
-    return render_template("index.html")
+    return render_template("index_clas.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
