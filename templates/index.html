@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Modelo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-4">Predicción de Modelo</h1>
+
+        <div class="card p-4 shadow-sm">
+            <form action="/" method="POST">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="Cuentas">Cuentas:</label>
+                        <input type="number" class="form-control" name="Cuentas" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="TC">TC:</label>
+                        <input type="number" class="form-control" name="TC" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="TxsDebAtm">TxsDebAtm:</label>
+                        <input type="number" class="form-control" name="TxsDebAtm" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="FacDebAtm">FacDebAtm:</label>
+                        <input type="number" class="form-control" name="FacDebAtm" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="CUPO">CUPO:</label>
+                        <input type="number" class="form-control" name="CUPO" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="TxsDebCom">TxsDebCom:</label>
+                        <input type="number" class="form-control" name="TxsDebCom" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="FacDebCom">FacDebCom:</label>
+                        <input type="number" class="form-control" name="FacDebCom" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Ctacte">Ctacte:</label>
+                        <input type="number" class="form-control" name="Ctacte" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Debito">Debito:</label>
+                        <input type="number" class="form-control" name="Debito" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ColL2T0">ColL2T0:</label>
+                        <input type="number" class="form-control" name="ColL2T0" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Hipotecario">Hipotecario:</label>
+                        <input type="number" class="form-control" name="Hipotecario" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Fac">Fac:</label>
+                        <input type="number" class="form-control" name="Fac" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="FacCN">FacCN:</label>
+                        <input type="number" class="form-control" name="FacCN" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ColL2CC">ColL2CC:</label>
+                        <input type="number" class="form-control" name="ColL2CC" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="FacCCPC">FacCCPC:</label>
+                        <input type="number" class="form-control" name="FacCCPC" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Internauta">Internauta:</label>
+                        <input type="number" class="form-control" name="Internauta" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Col">Col:</label>
+                        <input type="number" class="form-control" name="Col" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="PagoNac">PagoNac:</label>
+                        <input type="number" class="form-control" name="PagoNac" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="FacCCOT">FacCCOT:</label>
+                        <input type="number" class="form-control" name="FacCCOT" step="any" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="ColMx">ColMx:</label>
+                        <input type="number" class="form-control" name="ColMx" step="any" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Predecir</button>
+            </form>
+        </div>
+
+        {% if prediction is not none %}
+            <div class="alert alert-info text-center mt-4" role="alert">
+                <h2>Resultado de la Predicción: {{ prediction }}</h2>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
